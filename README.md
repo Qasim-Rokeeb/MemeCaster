@@ -60,7 +60,7 @@ App will be live at `http://localhost:5173` (or another port).
 * Scroll to explore meme templates.
 * Click on any meme to customize it.
 
-### 🎨 Meme Generator
+### 🎨 Meme GeneratorS
 
 * Enter top and bottom text.
 * Click **Generate Meme**.
@@ -69,7 +69,7 @@ App will be live at `http://localhost:5173` (or another port).
 ### ⚙️ Admin Panel
 
 * Click the ⚙️ **Admin** button in the navbar.
-* Enter the admin password: `asJrA.61271895$`
+* Enter the admin password: `************`
 * Input Imgflip credentials (username + password).
 * Credentials are saved in your browser's localStorage.
 
