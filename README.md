@@ -107,7 +107,4 @@ MIT License. Feel free to use and modify this project.
 
 ```
 
----
 
-Let me know if you'd like the README tailored for deployment on GitHub Pages or Netlify, or if you want badges, screenshots, or usage GIFs added.
-```
