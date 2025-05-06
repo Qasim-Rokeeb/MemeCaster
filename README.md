@@ -1,8 +1,4 @@
-Here’s a complete `README.md` for your **MemeCaster** project, including setup, features, tech stack, and usage instructions:
 
----
-
-````markdown
 # MemeCaster😄🎨
 
 A fun web app that lets users browse meme templates and generate their own memes using the Imgflip API. Built with **React**, **Tailwind CSS**, and supports **infinite scrolling** and **admin credential configuration**.
