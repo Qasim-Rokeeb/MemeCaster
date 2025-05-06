@@ -73,11 +73,6 @@ App will be live at `http://localhost:5173` (or another port).
 * Input Imgflip credentials (username + password).
 * Credentials are saved in your browser's localStorage.
 
-> If no custom credentials are set, the app uses default values:
->
-> * Username: `olalekancodes`
-> * Password: `Rokeeb.6127#`
-
 ---
 
 ## 📦 Project Structure
