@@ -1,28 +1,29 @@
-export const config = {
-    runtime: 'edge',
-  };
+export default async function handler(req, res) {
+    const { searchParams } = new URL(req.url || '', `http://${req.headers.host}`);
+    const memeId = searchParams.get('meme') || '112126428'; // fallback to "Distracted Boyfriend"
   
-  export default async function handler(req) {
+    const memeUrl = `https://i.imgflip.com/${memeId}.jpg`;
+  
     const frameHtml = `
       <!DOCTYPE html>
       <html>
         <head>
-          <meta property="og:title" content="Start Creating Memes" />
-          <meta property="og:image" content="https://your-vercel-domain.vercel.app/logo.png" />
-          <meta property="fc:frame" content="vNext" />
-          <meta property="fc:frame:button:1" content="Open Meme App" />
-          <meta property="fc:frame:post_url" content="https://your-vercel-domain.vercel.app/api/frame-response" />
-          <meta http-equiv="refresh" content="0;url=https://your-vercel-domain.vercel.app/?source=frame" />
+          <title>Meme Frame</title>
+          <meta property="og:title" content="Generate a Meme!" />
+          <meta property="og:image" content="${memeUrl}" />
+          <meta name="fc:frame" content="vNext" />
+          <meta name="fc:frame:image" content="${memeUrl}" />
+          <meta name="fc:frame:button:1" content="Customize" />
+          <meta name="fc:frame:post_url" content="https://${req.headers.host}/api/frame-response" />
         </head>
-        <body></body>
+        <body>
+          Meme loading...
+        </body>
       </html>
     `;
   
-    return new Response(frameHtml, {
-      headers: {
-        'Content-Type': 'text/html',
-        'Cache-Control': 'public, max-age=0, must-revalidate',
-      },
-    });
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    res.status(200).send(frameHtml);
   }
   
