@@ -1,20 +1,14 @@
-export async function POST(req) {
-    const body = await req.json();
+export default async function handler(req, res) {
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
   
-    // Optional: log interaction
+    const body = req.body || {};
+  
     console.log('Frame interaction:', body);
   
-    return new Response(
-      JSON.stringify({
-        redirect: 'https://meme-caster.vercel.app/', // send user to full app
-      }),
-      {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      }
-    );
+    return res.status(200).json({
+      redirect: 'https://meme-caster.vercel.app/',
+    });
   }
   
