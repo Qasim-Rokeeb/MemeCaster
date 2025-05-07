@@ -1,4 +1,6 @@
 // src/App.jsx
+import { sdk } from '@farcaster/frame-sdk';
+await sdk.actions.ready();
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -16,3 +18,4 @@ function App() {
 }
 
 export default App;
+await sdk.actions.ready({ disableNativeGestures: true });
