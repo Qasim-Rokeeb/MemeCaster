@@ -1,29 +1,20 @@
-export default async function handler(req, res) {
-    const { searchParams } = new URL(req.url || '', `http://${req.headers.host}`);
-    const memeId = searchParams.get('meme') || '112126428'; // fallback to "Distracted Boyfriend"
+export async function POST(req) {
+    const body = await req.json();
   
-    const memeUrl = `https://i.imgflip.com/${memeId}.jpg`;
+    // Optional: log interaction
+    console.log('Frame interaction:', body);
   
-    const frameHtml = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Meme Frame</title>
-          <meta property="og:title" content="Generate a Meme!" />
-          <meta property="og:image" content="${memeUrl}" />
-          <meta name="fc:frame" content="vNext" />
-          <meta name="fc:frame:image" content="${memeUrl}" />
-          <meta name="fc:frame:button:1" content="Customize" />
-          <meta name="fc:frame:post_url" content="https://${req.headers.host}/api/frame-response" />
-        </head>
-        <body>
-          Meme loading...
-        </body>
-      </html>
-    `;
-  
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-    res.status(200).send(frameHtml);
+    return new Response(
+      JSON.stringify({
+        redirect: 'https://meme-caster.vercel.app/', // send user to full app
+      }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
   }
   

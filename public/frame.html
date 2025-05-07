@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Meme Generator</title>
-
-    <!-- Open Graph Metadata (for rich previews) -->
-    <meta property="og:title" content="🔥 Generate Your Meme" />
-    <meta property="og:description" content="Click below to launch the meme creator." />
-    <meta property="og:image" content="https://your-vercel-domain.vercel.app/logo.png" />
-    <meta property="og:type" content="website" />
-
-    <!-- Farcaster Frame Metadata -->
+    <meta property="og:title" content="Create a Meme" />
+    <meta property="og:image" content="https://api.memegen.link/images/fry/shut_up/and_take_my_money.png" />
+    
+    <!-- This is the key Warpcast frame instruction -->
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://your-vercel-domain.vercel.app/logo.png" />
-    <meta property="fc:frame:button:1" content="Launch Meme Maker" />
-    <meta property="fc:frame:post_url" content="https://your-vercel-domain.vercel.app/api/frame-response" />
+    <meta property="fc:frame:image" content="https://api.memegen.link/images/fry/shut_up/and_take_my_money.png" />
+    <meta property="fc:frame:post_url" content="https://meme-caster.vercel.app/api/frame-response" />
+
+    <!-- Buttons -->
+    <meta property="fc:frame:button:1" content="Generate Your Own Meme" />
   </head>
   <body>
-    <h1>Farcaster Meme Generator Frame</h1>
-    <p>If you're seeing this, open this frame in Warpcast to use it interactively.</p>
+    <p>Warpcast Frame for Meme Generator</p>
   </body>
 </html>
