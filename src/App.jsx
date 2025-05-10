@@ -1,5 +1,4 @@
 // src/App.jsx
-
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -8,8 +7,16 @@ import { sdk } from '@farcaster/frame-sdk';
 
 function App() {
   useEffect(() => {
-    // Signal to Warpcast that the app is fully ready to be displayed
-    sdk.ready();
+    const signalReady = async () => {
+      try {
+        await sdk.actions.ready();
+        console.log('App is ready');
+      } catch (error) {
+        console.error('Error signaling readiness:', error);
+      }
+    };
+
+    signalReady();
   }, []);
 
   return (
